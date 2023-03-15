@@ -1,0 +1,18 @@
+version: '2.3'
+
+services:
+  base:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+      args:
+          NODE_ENV: development
+    # working_dir: /code
+    # volumes:
+    #   - ./:/code
+    #   - /code/node_modules
+
+  node-fs:
+    extends: base
+    container_name: node-fs
+    command: "npm run start"
